@@ -14,7 +14,11 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: eb7e7c7681b472840b8a50e26ef25ebd
+    name: VBGM
+  - guid: 57f9f751cf94dd340abb5e4a45b242de
+    name: VSFX
   m_AudioMixerGroupViews:
   - guids:
     - eebcc3ad1fddf9243830912082cfebec

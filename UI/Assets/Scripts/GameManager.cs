@@ -7,4 +7,12 @@ public class GameManager : MonoBehaviour
     // 修飾詞 類型 名稱 結尾
     // public 公開、private 私人
     public AudioMixer mixer;
+
+    // 定義方法 (宣告函式)
+    // 修飾詞 類型 名稱 (參數) { 敘述 }
+    public void SetVBGM(float value)
+    {
+        // 音效管理器.設定浮點數("名稱"，值);
+        mixer.SetFloat("VBGM", value);
+    }
 }
