@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;    // 引用 音頻 API
+using UnityEngine.UI;       // 引用 介面 API
 
 public class GameManager : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class GameManager : MonoBehaviour
     // 修飾詞 類型 名稱 結尾
     // public 公開、private 私人
     public AudioMixer mixer;
+
+    public Text loadingText;    // 文字
+    public Slider loading;      // 滑桿
 
     // 定義方法 (宣告函式)
     // 修飾詞 類型 名稱 (參數) { 敘述 }
