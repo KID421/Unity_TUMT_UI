@@ -15,4 +15,9 @@ public class GameManager : MonoBehaviour
         // 音效管理器.設定浮點數("名稱"，值);
         mixer.SetFloat("VBGM", value);
     }
+
+    public void SetVSFX(float value)
+    {
+        mixer.SetFloat("VSFX", value);
+    }
 }
