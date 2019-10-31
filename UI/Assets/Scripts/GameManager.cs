@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;    // 引用 音頻 API
 using UnityEngine.UI;       // 引用 介面 API
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,5 +24,10 @@ public class GameManager : MonoBehaviour
     public void SetVSFX(float value)
     {
         mixer.SetFloat("VSFX", value);
+    }
+
+    public void Play()
+    {
+        SceneManager.LoadScene("場景");
     }
 }
