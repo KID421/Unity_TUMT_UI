@@ -42,18 +42,20 @@ public class GameManager : MonoBehaviour
 
         AsyncOperation ao = SceneManager.LoadSceneAsync("場景");        // 取得場景資訊
         ao.allowSceneActivation = false;                                // 取消載入場景
-        // 更新介面並等待
-        loadingText.text = ((ao.progress / 0.9f) * 100).ToString();     // 載入文字.文字 = (0.9 / 0.9) * 100
-        loading.value = ao.progress / 0.9f;                             // 載入滑桿.數值 = 0.9 / 0.9
-        yield return new WaitForSeconds(0.0001f);                       // 等待秒數
-     
-        // 複製上方三段
-        loadingText.text = ((ao.progress / 0.9f) * 100).ToString();
-        loading.value = ao.progress / 0.9f;
-        yield return new WaitForSeconds(0.0001f);
 
-        loadingText.text = ((ao.progress / 0.9f) * 100).ToString();
-        loading.value = ao.progress / 0.9f;
-        yield return new WaitForSeconds(0.0001f);
+        // 當 (場景載入 == 未完成)
+        while (ao.isDone == false)
+        {
+            // 更新介面並等待
+            loadingText.text = ((ao.progress / 0.9f) * 100).ToString();     // 載入文字.文字 = (0.9 / 0.9) * 100
+            loading.value = ao.progress / 0.9f;                             // 載入滑桿.數值 = 0.9 / 0.9
+            yield return new WaitForSeconds(0.0001f);                       // 等待秒數
+
+            // 如果 載入進度 == 0.9 並且 按下任意鍵
+            if (ao.progress == 0.9f && Input.anyKey)
+            {
+                ao.allowSceneActivation = true;
+            }
+        }
     }
 }
