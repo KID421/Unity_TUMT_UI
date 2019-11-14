@@ -30,16 +30,22 @@ public class GameManager : MonoBehaviour
     public void Play()
     {
         // SceneManager.LoadScene("場景");
-
-        // 啟動協同程序(協同程序方法名稱());
-        StartCoroutine(Loading());
+        StartCoroutine(Loading());              // 啟動協同程序(協同程序方法名稱());
     }
 
     // 協同程序 Coroutine
     private IEnumerator Loading()
     {
-        print("測試 1");
-        yield return new WaitForSeconds(1);     // 等待秒數(秒數);
-        print("測試 2");
+        //print("測試 1");
+        //yield return new WaitForSeconds(1);     // 等待秒數(秒數);
+        //print("測試 2");
+
+        AsyncOperation ao = SceneManager.LoadSceneAsync("場景");    // 取得場景資訊
+        ao.allowSceneActivation = false;                            // 取消載入場景
+        loadingText.text = ao.progress.ToString();                  // 更新文字 = 載入.進度
+        yield return new WaitForSeconds(0.0001f);                   // 等待秒數(秒數)
+        loadingText.text = ao.progress.ToString();
+        yield return new WaitForSeconds(0.0001f);
+        loadingText.text = ao.progress.ToString();
     }
 }
