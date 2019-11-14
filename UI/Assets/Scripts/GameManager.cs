@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.Audio;    // 引用 音頻 API
-using UnityEngine.UI;       // 引用 介面 API
-using UnityEngine.SceneManagement;
+using UnityEngine.Audio;            // 引用 音頻 API
+using UnityEngine.UI;               // 引用 介面 API
+using UnityEngine.SceneManagement;  // 引用 場景管理器 API
+using System.Collections;           // 引用 系統.集合 API (使用協同程序需要引用)
 
 public class GameManager : MonoBehaviour
 {
@@ -28,6 +29,17 @@ public class GameManager : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("場景");
+        // SceneManager.LoadScene("場景");
+
+        // 啟動協同程序(協同程序方法名稱());
+        StartCoroutine(Loading());
+    }
+
+    // 協同程序 Coroutine
+    private IEnumerator Loading()
+    {
+        print("測試 1");
+        yield return new WaitForSeconds(1);     // 等待秒數(秒數);
+        print("測試 2");
     }
 }
