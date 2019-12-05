@@ -1627,7 +1627,6 @@ MonoBehaviour:
   spritePause: {fileID: 21300000, guid: e46a55c72cbd4ad478d9978fbbb1879b, type: 3}
   spritePlay: {fileID: 21300000, guid: e9493b8d4798b644eb6935fbb37bab69, type: 3}
   pause: 0
-  test: 0
 --- !u!4 &664395770
 Transform:
   m_ObjectHideFlags: 0

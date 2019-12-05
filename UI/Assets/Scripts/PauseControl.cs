@@ -6,6 +6,8 @@ public class PauseControl : MonoBehaviour
     [Header("暫停介面")]
     public Image imagePause;
     public Sprite spritePause, spritePlay;
+    [Header("暫停")]
+    public bool pause;
 
     /// <summary>
     /// 暫停方法
@@ -16,6 +18,7 @@ public class PauseControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             print("暫停~");
+            pause = !pause;     // ! 相反：將布林值改為相反
         }
     }
 
