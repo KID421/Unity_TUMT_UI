@@ -19,6 +19,13 @@ public class PauseControl : MonoBehaviour
         {
             print("暫停~");
             pause = !pause;     // ! 相反：將布林值改為相反
+
+            // 條件運算子
+            // 布林值 ? 結果一 : 結果二
+            // 布林值 true 會執行結果一
+            // 布林值 salse 會執行結果二
+
+            imagePause.sprite = pause ? spritePlay : spritePause;
         }
     }
 
