@@ -12,7 +12,11 @@ public class PauseControl : MonoBehaviour
     /// </summary>
     private void Pause()
     {
-        print("暫停~");
+        // 如果 按下 ESC 就執行 {}
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            print("暫停~");
+        }
     }
 
     // 更新：一秒執行約 60 次
