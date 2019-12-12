@@ -16,4 +16,14 @@ public class Player : MonoBehaviour
             hpSlider.value = hp;                        // 血量滑桿.值 = 血量
         }
     }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.tag == "陷阱")                        // 如果 碰到.標籤 等於 "陷阱"
+        {
+            int d = other.GetComponent<Trap>().damage;  // 取得元件<泛型>().成員
+            hp -= d;                                    // 血量 扣 10
+            hpSlider.value = hp;                        // 血量滑桿.值 = 血量
+        }
+    }
 }
