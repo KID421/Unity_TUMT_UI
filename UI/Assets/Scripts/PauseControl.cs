@@ -17,7 +17,7 @@ public class PauseControl : MonoBehaviour
         // 如果 按下 ESC 就執行 {}
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            print("暫停~");
+            //print("暫停~");
             pause = !pause;     // ! 相反：將布林值改為相反
 
             // 條件運算子

@@ -20,8 +20,22 @@ public class Player : MonoBehaviour
             hp -= d;                                    // 血量 扣 傷害值
             hpSlider.value = hp;                        // 血量滑桿.值 = 血量
         }
+
+        if (other.tag == "雞腿")
+        {
+            chickenCount++;
+            textChicken.text = "CHICKEN : " + chickenCount + " / " + chickenTotal;
+            Destroy(other.gameObject);
+        }
+
+        // 如果 碰到.名稱 為 "終點" 並且 雞腿數量 =等於 雞腿總數
+        if (other.name == "終點" && chickenCount == chickenTotal) 
+        {
+            print("過關");
+        }
     }
 
+    // 粒子碰撞事件：碰到勾選 Send Collision Messages 粒子會執行一次
     private void OnParticleCollision(GameObject other)
     {
         if (other.tag == "陷阱")                        // 如果 碰到.標籤 等於 "陷阱"
