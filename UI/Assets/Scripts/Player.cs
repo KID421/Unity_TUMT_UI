@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     public Text textChicken;    // 雞腿文字介面
     public int chickenCount;    // 雞腿數量
     public int chickenTotal;    // 雞腿總數
+    [Header("時間區域")]
+    public Text textTime;       // 時間文字介面
+    public float gameTime;      // 時間
 
     // 觸發事件：碰到勾選 IsTrigger 物件會執行一次
     private void OnTriggerEnter(Collider other)
@@ -50,5 +53,16 @@ public class Player : MonoBehaviour
     {
         chickenTotal = GameObject.FindGameObjectsWithTag("雞腿").Length;    // 雞腿總數 = 遊戲物件.透過標籤尋找複數物件("標籤名稱").數量
         textChicken.text = "CHICKEN : 0 / " + chickenTotal;                 // 雞腿文字介面.文字 = "CHICKEN : 0 / " + 雞腿總數
+    }
+
+    private void Update()
+    {
+        UpdateTime();
+    }
+
+    private void UpdateTime()
+    {
+        gameTime += Time.deltaTime;                             // 累加 一個影格的時間
+        textTime.text = "TIME : " + gameTime.ToString("F2");    // 時間介面.文字 = 時間.ToString("小數點後兩位數")
     }
 }
